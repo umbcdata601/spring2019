@@ -1,0 +1,9 @@
+<p>Good morning,</p>
+<p>I was asked two questions in lecture Wednesday and would like to share the answers here for everyone to read.<br /><br />The first question was on merging data. When the fields to be merged are not exact matches, the merge fails. This may be due to misspelling of the entries or different use of white space ("a key" versus "a   key") or a difference in case (my_key versus My_Key). The white space can be addressed using a regex and the case difference can be resolved using <a href="https://www.google.com/search?q=python+lower">the .lower() method</a>. The situation where words may have different spellings is trickier. The concept of <a href="https://en.wikipedia.org/wiki/Edit_distance">edit distance</a> is how many changes are needed to convert one string to another. </p>
+<p>For a Python-based explanation of edit distance, see https://www.geeksforgeeks.org/edit-distance-dp-5/ and https://www.python-course.eu/levenshtein_distance.php <br />There's a command available in NLTK https://www.nltk.org/api/nltk.metrics.html#nltk.metrics.distance.edit_distance<br /> and there are example implementations https://en.wikibooks.org/wiki/Algorithm_Implementation/Strings/Levenshtein_distance#Python</p>
+<p>***************</p>
+<p>The second question was on finding historical weather data by year and by city. One resource is https://climate.usu.edu/Admin/massDownload.php<br /> This site requires submitting your email address to create an account and is free.</p>
+<p>For additional options, see <br />https://www.cpc.ncep.noaa.gov/products/monitoring_and_data/us_prec.shtml<br />https://www.ncdc.noaa.gov/cdo-web/<br />https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/global-historical-climatology-network-ghcn</p>
+<p>If you need help finding relevant data sources, please let me know.</p>
+<p>Kindly,</p>
+<p>Ben</p>

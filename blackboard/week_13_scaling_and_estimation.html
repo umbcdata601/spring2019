@@ -1,0 +1,29 @@
+<p>Good morning,​</p>
+<p>This week we will discuss scaling and estimation​. To prepare your mind, there is a reading on estimation you should do prior to class​. From the book <a href="https://www.dropbox.com/s/bmqwzc8qqt5lv9p/9017.pdf​">"The Art of Approximation in Science and Engineering​"</a> read pages 20 to 36 of 409 (pages 1 to 17 in the PDF)​.</p>
+<p>(For comments on the book, see​ <a href="https://news.ycombinator.com/item?id=18099596">this thread</a>.) ​</p>
+<p>************************</p>
+<p>For the topic of scaling, there are many great videos available on Youtube. I've created a Youtube playlist for talks about scaling:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=Syc3axgRsBw">Seattle Conference on Scalability: Scaling Google for Every User</a></li>
+<li><a href="https://www.youtube.com/watch?v=xrYMfbcv3-c​">Scalable &amp; Deployable Data Science with Anaconda | Kris Overholt | AnacondaCON 2017</a></li>
+<li><a href="https://www.youtube.com/watch?v=QCSAtujhYuw​">Scaling Data Science at Airbnb</a></li>
+<li><a href="https://www.youtube.com/watch?v=48WchucU8UY​">Sergii Khomenko - From Data Science to Production - deploy, scale, enjoy!</a></li>
+<li><a href="https://www.youtube.com/watch?v=KVGrACWVUgE​">PayPal Notebooks: Data science and machine learning at scale, powered by Jupyter</a></li>
+<li><a href="https://www.youtube.com/watch?v=6QVXPNrSbLU​">Scaling Knowledge: A Look at Airbnb Data Science Team</a></li>
+<li><a href="https://www.youtube.com/watch?v=pzHwAuTMpeU​">Marck Vaisman | Scaling up to Big Data Devops for Data Science</a></li>
+<li><a href="https://www.youtube.com/watch?v=PE4gwstWhmc">How We've Scaled Dropbox</a></li>
+<li><a href="https://www.youtube.com/watch?v=Sv8R58V2x9A​">Scaling Up – Why a few companies make it and the rest don’t</a></li>
+<li><a href="https://www.youtube.com/watch?v=bFC4iCqiGS4​">Scaling Up How a Few Companies Make It and Why the Rest Dont Rockefeller Habits Audiobook</a></li>
+</ul>
+<p>************************</p>
+<p>One of the questions last week was about integrating Python with other languages. There are a couple of ways in which this can be interpreted.</p>
+<p>The most common way I use Python with other languages is as a step in a workflow. I often start my analysis using <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">Linux's bash</a> (grep, sed, awk, cut, find) or, on Windows, <a href="https://en.wikipedia.org/wiki/PowerShell">Powershell</a>. I use bash to extract the information I want, then I use Python to do follow-on processing that is more complex or larger scale.</p>
+<p>It is common to call one language from another. This is done for a couple reasons: to avoid re-implementing an existing solution, or because another language is more effective (eg faster) for the task. For example, Python and C can be integrated; see <a href="https://docs.python.org/3/extending/extending.html">Extending Python with C or C++</a>. Similarly, we can <a href="https://pypi.org/project/rpy2/">call R from Python</a>. For an extensive listing of combinations, see <a href="https://wiki.python.org/moin/IntegratingPythonWithOtherLanguages">https://wiki.python.org/moin/IntegratingPythonWithOtherLanguages</a></p>
+<p>Another sense of using Python with other languages is <a href="https://en.wikipedia.org/wiki/Metaprogramming">meta-programming</a>. In this situation, Python can be used to produce programs. A Python script can generate other Python scripts, or a Python script can produce a program written in a different language, eg <a href="https://en.wikipedia.org/wiki/Fortran">Fortran</a>. I used metaprogramming when I worked with <a href="https://en.wikipedia.org/wiki/Fortran#Fortran_90">Fortran programs</a> to generate Fortran source code from a Python script.</p>
+<p>We encountered metaprogramming when we discussed automation in week 5. In that lecture we reviewed how to use Python to generate HTML from templates.</p>
+<p>************************</p>
+<p>Lastly, I received a request to share links on how I keep up with the field of data science. I read posts like this: <a href="https://multithreaded.stitchfix.com/blog/2017/01/23/scaling-ds-at-sf-slides-from-ddtexas/">scaling data science</a> From that same company, there's a great page on the <a href="https://algorithms-tour.stitchfix.com/">algorithms they use</a>.</p>
+<p></p>
+<p></p>
+<p>Kindly,</p>
+<p>Ben</p>

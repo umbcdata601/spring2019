@@ -1,0 +1,19 @@
+<p>Good evening,</p>
+<p>Here are my responses to a few questions asked in the past weeks.</p>
+<p>******************************</p>
+<p><i>Question</i>: "How does Python read and interpret a response?" <br /> <i>Response</i>: One reason Jupyter can be complicated to learn is because it is composed of many different tools stacked in layers. Understanding how you are able to write code on a computer relies on being able to grasp each tool and how it relates to other tools in the stack. For a quick overview, see <a href="https://jupyter.readthedocs.io/en/latest/architecture/how_jupyter_ipython_work.html#notebooks">How Jupyter works</a>. As indicated in the figure on that page, you rely on a web browser (eg Firefox, Chrome, Internet Explorer) to access a webserver running on your local computer. The server manages your interaction with both a .ipynb file and the kernel being used. We use a Python kernel to execute code written in the browser.</p>
+<p>The Python kernel is effectively serving in Jupyter as the <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a>. Addressing how that works is the content of this <a href="https://tech.blog.aknin.name/2010/04/02/pythons-innards-introduction/">series of posts</a>.</p>
+<p>******************************</p>
+<p><i>Question</i>: "How to automate sending encrypted emails?"<br /> <i>Response</i>: There are two ways to interpret this question. One aspect is the encryption between the sender (you) and the server (eg Gmail), the other is encrypting the email body so that no one besides the intended recipient can view the content.</p>
+<p>When you use <a href="https://en.wikipedia.org/wiki/SMTPS">SMTP Secure</a>, the mail is transmitted in a encrypted connection but the owner of the mail server could potentially read the content. (This is how Gmail filters out spam and monetizes email with advertisements -- by reading the content).</p>
+<p>Encrpting the body of the email before sending it to the server is usually a separate step. <a href="https://www.openpgp.org/">PGP</a> is a standard for encryption (and applies to more than just email; see <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">the Wikipedia entry</a>). In this context, there are <a href="https://www.google.com/search?q=python+pgp">libraries in Python that work with PGP</a>.</p>
+<p>******************************</p>
+<p><i>Question</i>: "Automate booking tickets online. Ping me on my phone when movie tickets are released." <br /> <i>Response</i>: This question can be tackled by considering how to break down a seemingly straight-forward objective into a sequence of smaller tasks.</p>
+<p>For example, getting a message to your phone means changing "ping me on my phone" to "send a text message to a phone number" which I demonstrated in the class on automation.</p>
+<p>Checking whether an API for ticket services exists is worth doing, but the task of "booking tickets online" implies a likely web interaction since an API typically is not offered. Then the question becomes how to interact with a webpage. <a href="https://www.seleniumhq.org/">Selenium</a> is a candidate.</p>
+<p>Lastly, a recurring task needs to be configured to run the check of ticket availability. This means having a dedicated computer available (either at home or in the cloud) from which to run a recurring task.</p>
+<p>******************************</p>
+<p><i>Question</i>: "How to build automated checkout tool. I want to learn which libraries I would need to start this process." <br /><i>Response</i>: I don't have enough context to respond helpfully, so if this question is still of interest please reply via email and let me know more.</p>
+<p></p>
+<p>Kindly,</p>
+<p>Ben</p>

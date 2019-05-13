@@ -1,0 +1,23 @@
+<p>Good evening,</p>
+<p>There have been lots of questions on the openpyxl/Excel homework. The assignment is challenging, so please start early and ask questions. </p>
+<p>I added two clarifications to the assignment for week 5:</p>
+<ul>
+<li>The notebook should produce an XLSX file that has everything the original XLSX has, plus new content.</li>
+<li>The new XLSX file should contain only two worksheets: "main" and "another"</li>
+</ul>
+<p>These do not change the homework requirements if you've already submitted your notebook.</p>
+<p></p>
+<p>Replies to a few of the questions submitted at the end of class:</p>
+<p><em>When do we know when we should be lazy and look for a library, and when should we manually create new code?</em><br /> The question I ask is, "Has anyone else ever had to do a task like this?" If yes, there may be a library. How much time should I spend investigating the existence and use of the library depends on the complexity of the task and how quickly I think I could come up with a manual solution.</p>
+<p><em>Where do you (Ben) go to find the libraries you are showing in class?</em><br /> I don't have a specific place I look (other than searching Google). Most of the libraries I show in class are because I faced a specific challenge as a data scientist, then found the library using the logic above ("Has anyone else done something similar?"). There is a dependence on knowing the relevant jargon in order to search the Internet effectively. Having the vocabulary for the topic you're interested in is vital.</p>
+<p><em>What are the risks of automation?</em><br /> When the system you've automated does not conform to the assumptions you've made, then your automation will fail. Keeping this in mind, design the failure mode of your automation to be loud (not silent) and safe.</p>
+<p><em>What role does automation play in Artificial Intelligence (AI)?</em><br /> The phrase "Artificial Intelligence" is loosely defined, so I don't have an answer. For machine learning, the typical sequence of steps is to get data, clean data, extract features, train the model or infer using the model, then present a result. In the "get data" and "clean data," automation can be applied.</p>
+<p><em>When to switch languages for automation?</em><br /> Depends on the task being performed and the scope of the language being used. For example, compare https://www.google.com/search?q=automate+mouse+movement+python and https://www.google.com/search?&amp;q=automate+mouse+movement+mac -- there are tools for both approaches.</p>
+<p><em>How to automate sending encrypted emails?</em><br /> In class I showed how to enable <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security">TLS</a> for <a href="https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">SMTP</a>. Using Google's API also requires secure authentication. These result in communication between you (the client) and the server being secure. However, once you send your email, it is plain text.<br /> To send encrypted emails, you would separately encrypt the message body prior to sending the content to the server. See <a href="https://en.wikipedia.org/wiki/GNU_Privacy_Guard">GPG</a> and <a href="https://www.google.com/search?q=gpg+python">these search results</a>.</p>
+<p><em>Are there any teaching assistants for this course?</em><br /> Yes. You can email Kavita: kavi1@umbc.edu</p>
+<p><em>Formatting Pandas?</em><br /> <a href="https://www.google.com/search?q=formatting+pandas+dataframe">this search</a> leads to <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/style.html">the styling guide</a></p>
+<p><em>How do you decide which libraries in Pandas are trustworthy?</em><br /> I don't. I run Jupyter in a Docker container so that packages I import don't mess with my computer. When I shut down the Docker container, anything not part of the image is lost. That's bad if I was storing data, good if there was malicious code.<br /> In general, free software does not imply trustworthy software. Opensource software (where you can inspect the code) is also not guaranteed to be either bug free or have perfect security.</p>
+<p><em>What are tasks you've automated at your own job?</em><br /> My day does not have a routine, so I don't typically find tasks that are repetitive. I intentionally have sought out work that is not repetitive, but most work I have observed other people doing is repetitive.</p>
+<p><em>Why does Selenium software often not work?</em><br /> Because it is dependent on a web browser to behave in certain ways. When those assumptions are broken, Selenium doesn't function as expected. The more external dependencies the code has, the more likely it is to break.</p>
+
+

@@ -1,0 +1,16 @@
+<p>Two suggestions for work on project 2:</p>
+<h4>Normalization</h4>
+<p>In the rubric I mention normalization but have not previously defined the term. In searching for the sense I cared about, I found that the word "<a href="https://en.wikipedia.org/wiki/Normalization_(statistics)">normalization</a>" is overused in data science and statistics. In the rubric, the sense I'm referring is illustrated by two use cases from project 1.</p>
+<p>A project that investigated Transportation Security Agency property damage claims found that JFK and Los Angeles airports had the highest claims filed, while BWI was ranked approximately 20th in the US. This ranking is valid. Using the same data, a comparison of "which airports are outliers in terms of number of claims filed?" would require normalization. Specifically, normalizing the ranking with respect to "number of passengers processed by TSA".</p>
+<p>A separate project looked at automotive accidents in the span of a year in one state. The author reported that Toyotas and Fords were most frequently reported make, with luxury cars (Lexus, BMW) involved in fewer accidents. In order to determine whether these results were unusual, the comparison of "how many vehicles of each make are on the road" would be a meaningful denominator to use in normalization.</p>
+<p>To summarize, determining when to normalize requires two questions:</p>
+<ul>
+<li><em>Which analysis needs normalization?</em> <strong>Answer</strong>: When attempting to find outliers for numerical data in different categories, normalization is necessary. In the two examples, the categories were "airport" and "vehicle make," respectively.</li>
+<li><em>What is a good choice for the denominator?</em> <strong>Answer</strong>: use the units associated with the question being asked. In the first example, "Do any airports (the category) have an unusual number of claims?" has the units "claims per airport." For the second example, "Does any vehicle make (the category) have an unusual number of accidents?" has the units "accidents per vehicle make."</li>
+</ul>
+<p></p>
+<h4>Dealing with NaNs</h4>
+<p>If order of rows does not matter, then row adjacency-based interpolation would not be appropriate to address NaN entries.</p>
+<p>One method would be to determine clusters of similar entities before interpolating. This would require identifying a metric for how strongly different entities are related.</p>
+<p>Alternatively, you could explore the use of error bars in the claims you make about data. If you know that you don't know the specific values, how much uncertainty does that introduce into your claims?</p>
+
