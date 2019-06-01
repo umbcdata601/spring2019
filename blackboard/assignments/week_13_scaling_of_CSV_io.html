@@ -1,0 +1,21 @@
+
+<p>Write Python code that can create a CSV containing 10 columns of text data​</p>
+<ul>
+<li>Each entry in each row should be between 3 and 25 characters​</li>
+<li>Adjacent rows in a CSV should not be the same​</li>
+<li>Generate files of size {0.1, 1, 5, 10, 100, 500} MB of data​</li>
+</ul>
+<p>Execution time for creating all of the CSV files should take less than 5 minutes. (<em><strong>Email me if you do not solve this in less than an hour</strong></em>.)​ ​</p>
+<p>The precision of the file sizes is +/- 20%.</p>
+<p>Measure how much time it takes to write each CSV file to disk. In your measurement do not include the time used in creating the CSV files. Perform this measurement three times per file size. Each measurement is of a different CSV. That's three different files per file size.​</p>
+<p>Measure how much time it takes for your computer to load the data from the CSV on disk into a Pandas dataframe. Perform this measurement three times per file size. Each measurement is of a different CSV.​</p>
+<p>Results: ​</p>
+<ul>
+<li>table of values (file size versus read time and write time for each experiment) ​</li>
+<li>Plot the average write times and average load times versus file size in a single scatter plot​ with semilogx scale</li>
+</ul>
+<p>Submit your python notebook (.ipynb file) containing the code for the experiment (creating files, running the timing experiments) and the results. ​</p>
+<p>Do not include the CSV files in your submission.</p>
+<p></p>
+<p>For this assignment, please ignore the rubric's runtime constraint for notebook.</p>
+

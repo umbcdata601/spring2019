@@ -1,0 +1,122 @@
+I go to <a href="https://news.ycombinator.com/">Hacker News</a> and look for interesting articles. What qualifies as "interesting" is specific to me.<br />
+<br />
+Features that I use to judge whether or not to read comments and/or article:<br />
+<br />
+<ul>
+<li>position on main page</li>
+<li>points</li>
+<li>author</li>
+<li>words in title</li>
+<li>number of comments</li>
+<li>URL domain</li>
+<li>how fast story has incremented points</li>
+</ul>
+<div>
+I could provide training data when I click on an article, comments, or author.</div>
+<div>
+This training could be used to promote future articles specific to my interests.</div>
+<div>
+<br /></div>
+<div>
+The training of a model is per user. Unique identifiers:</div>
+<div>
+<ul>
+<li>cookie</li>
+<li>user ID (if logged in)</li>
+<li>user agent string</li>
+<li>IP</li>
+</ul>
+</div>
+
+
+
+In this post I provide the intention of the work and identify data sources. See <a href="http://graphthinking.blogspot.com/2016/09/scraping-hacker-news-articles-part-2.html">part 2 on initial analysis of the data</a>.<br />
+<br />
+<a href="https://news.ycombinator.com/">Hacker News</a> is a popular site for articles related to tech. In addition to their web interface, Hacker News supports an API: <a href="https://github.com/HackerNews/API">https://github.com/HackerNews/API</a>.<br />
+More background:<br />
+<a href="https://news.ycombinator.com/item?id=8422599">https://news.ycombinator.com/item?id=8422599</a><br />
+<a href="http://www.pythonforbeginners.com/api/how-to-use-the-hacker-news-api">http://www.pythonforbeginners.com/api/how-to-use-the-hacker-news-api</a><br />
+<br />
+As an example, the info for a specific articles is available as<br />
+<a href="https://hacker-news.firebaseio.com/v0/item/8863.json?print=pretty">https://hacker-news.firebaseio.com/v0/item/8863.json?print=pretty</a><br />
+<br />
+What I want to know is what articles should I read that I have not. This means building a recommender. There are two applications:<br />
+<ul>
+<li>Historically, which old articles might be of interest to me?</li>
+<li>Of new articles (since the last time I read Hacker News), which articles might be of interest to me.</li>
+</ul>
+Of these two, the historical question is easier (it's static) so it will be the focus of this post. In contrast, there are also posts on "top news articles"<br />
+<a href="https://news.ycombinator.com/item?id=10535210">https://news.ycombinator.com/item?id=10535210</a><br />
+<a href="https://hackerbits.com/uncategorized/improve-hacker-news-ui/">https://hackerbits.com/uncategorized/improve-hacker-news-ui/</a><br />
+<a href="https://hckrnews.com/">https://hckrnews.com/</a><br />
+<a href="http://hnrankings.info/6/1-20/">http://hnrankings.info/6/1-20/</a><br />
+<a href="https://news.ycombinator.com/lists">https://news.ycombinator.com/lists</a><br />
+<br />
+What data is needed:<br />
+<ul>
+<li>I need to collect which articles I have read (see <a href="http://graphthinking.blogspot.com/2016/08/getting-chrome-browser-history.html">exporting chrome history</a>). This data forms the training set.&nbsp;</li>
+<li>I need to collect all articles posted to the front page of Hacker News. Correlating this data with articles I read provides features relevant to training.&nbsp;<a href="https://github.com/minimaxir/hacker-news-download-all-stories/blob/master/hacker_news_getallstories.py">https://github.com/minimaxir/hacker-news-download-all-stories/blob/master/hacker_news_getallstories.py</a></li>
+<li>To address the new articles question, I would also need to collect new articles&nbsp;posted to the front page of Hacker News. <a href="https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty">https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty</a></li>
+</ul>
+<div>
+What features exist for training from <a href="https://github.com/HackerNews/API">https://github.com/HackerNews/API</a>:</div>
+<div>
+<ul>
+<li>"by" = author</li>
+<li>words in "title" minus stop words</li>
+<li>"type" (ie story)</li>
+<li>domain from "URL"</li>
+<li>words in "URL" after the domain</li>
+<li>"score"</li>
+<li>"descendants" = In the case of stories or polls, the total comment count.</li>
+</ul>
+<div>
+<br />
+Pulling the history from&nbsp;<a href="https://hn.algolia.com/api">https://hn.algolia.com/api</a>, the relevant tags are<br />
+<ul>
+<li>title</li>
+<li>URL</li>
+<li>author</li>
+<li>points</li>
+<li>num_comments</li>
+</ul>
+<div>
+If I limit the loop in<br />
+<a href="https://github.com/minimaxir/hacker-news-download-all-stories/blob/master/hacker_news_getallstories.py">https://github.com/minimaxir/hacker-news-download-all-stories/blob/master/hacker_news_getallstories.py</a><br />
+to 10 iterations (1000 articles per pull) for a total of 10,000 entries gets the past 18 days in a CSV file of 1.6MB.<br />
+<br />
+To take advantage of all the possible features in this CSV, I need to separate "title" into words and "URL" into "domain" and "post-domain words." This is not required to get a result, so I'll come back to this later. In the interim, I can simply look at the intersection of article IDs in my history and use the score and author and num_comments as features.<br />
+<br />
+<i>How many Hacker News articles are in my history file?</i><br />
+<div class="p1">
+<span class="s1"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">$ cat history_URL_sorted_uniq.log | grep ycombinator.com/item | wc -l</span></span></div>
+<div class="p1">
+<span class="s1"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">&nbsp; &nbsp; &nbsp;175</span></span></div>
+<div class="p1">
+<span class="s1"><br /></span>
+<span class="s1">Chrome history reports time in milliseconds since Jan 1, 1601. Subtracting the max and min timestamps I find that the exported Chrome history is the past 90 days.</span></div>
+<div class="p1">
+<span class="s1">So <b>in the past 90 days I've clicked on 175 HackerNews articles.</b></span></div>
+<div class="p1">
+<span class="s1"><br /></span></div>
+<div class="p1">
+<span class="s1"><i>Which of the 10,000 entries in the CSV from the past 18 days did I click on?</i></span></div>
+<div class="p1">
+<span class="s1">First, get a list of the IDs I clicked on:</span></div>
+<div class="p1">
+<span class="s1">
+
+
+
+
+
+
+
+</span></div>
+<div class="p1">
+<span class="s1"><span style="font-family: &quot;courier new&quot; , &quot;courier&quot; , monospace;">cat history_URL_sorted_uniq.log | grep ycombinator.com/item | sed 's/https:\/\/news\.ycombinator\.com\/item\?id=//'</span></span></div>
+<div class="p1">
+<span class="s1"><br /></span></div>
+</div>
+</div>
+</div>

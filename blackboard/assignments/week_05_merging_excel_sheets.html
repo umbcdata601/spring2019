@@ -1,0 +1,26 @@
+<p>Situation:</p>
+<ul>
+<li>You get an Excel spreadsheet that has two worksheets, "main" and "another"​</li>
+<li>Each worksheet has data and visualizations. ​</li>
+<li>Worksheet "main" has a "patient id" column; ​</li>
+<li>Worksheet "another" has a "p_id" column​</li>
+<li>The "patient id" values in "main" tab are the same variable as "p_id" in "another"​</li>
+</ul>
+<p>Submit a notebook that reads the Excel spreadsheet and produces a separate spreadsheet with the following modifications:​</p>
+<ul>
+<li>Use openpyxl to copy patients from "another" to "main"​</li>
+<li>For patients on "another" that don't exist in "main," create new rows in "main"​</li>
+<li>Make no changes to the visualizations that exist in each worksheet​</li>
+<li><span style="color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">The notebook should produce an XLSX file that has everything the original XLSX has, plus new content.</span></li>
+<li><span style="color: #222222; font-family: Arial, Helvetica, sans-serif; font-size: small; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">The new XLSX file should contain only two worksheets: "main" and "another"</span></li>
+<li>Make no changes to the data on "another"​</li>
+<li>Write your changes to a new .xlsx file (don't overwrite the original)​</li>
+</ul>
+<p>​ Observations:​</p>
+<ul>
+<li>"main" worksheet will have three new columns (because those columns exist in the "another" worksheet)​</li>
+<li>"main" worksheet will have new rows (one row per patient)​</li>
+<li>There will be empty cells in "main" worksheet​</li>
+<li>Use a programmatic (rather than manual) approach to identify which patients appear in both worksheets​</li>
+<li>Some cells in both worksheets contain formulas. Copy only values from "another" to "main"​</li>
+</ul>
